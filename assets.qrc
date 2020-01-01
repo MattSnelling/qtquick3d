@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+    	<file>assets/images/plane.png</file>
+        <file>assets/skybox/HDR_029_Sky_Cloudy_Ref.hdr</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/models/Axis.qml</file>
+        <file>qml/models/rigs/staubli/RX160L/RX160L.qml</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/arm.mesh</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/base.mesh</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/lift.mesh</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/rotate.mesh</file>
+        <file>qml/environments/RigEnvironment.qml</file>
+        <file>qml/environments/PathEnvironment.qml</file>
+        <file>qml/scenes/RigScene.qml</file>
+        <file>qml/scenes/PathScene.qml</file>
+        <file>qml/viewports/RigViewport.qml</file>
+        <file>qml/viewports/PathViewport.qml</file>
+        <file>qml/materials/AxisGlowMaterial.qml</file>
+        <file>qml/materials/AxisMaterial.qml</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/arm_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/base_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/lift_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160L/meshes/rotate_inverted.mesh</file>
+    </qresource>
+</RCC>
