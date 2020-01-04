@@ -2,11 +2,7 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/models/Axis.qml</file>
-        <file>qml/models/rigs/staubli/RX160L/RX160L.qml</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/arm.mesh</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/base.mesh</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/lift.mesh</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/rotate.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/RX160L.qml</file>
         <file>qml/environments/RigEnvironment.qml</file>
         <file>qml/environments/PathEnvironment.qml</file>
         <file>qml/scenes/RigScene.qml</file>
@@ -15,9 +11,29 @@
         <file>qml/viewports/PathViewport.qml</file>
         <file>qml/materials/AxisGlowMaterial.qml</file>
         <file>qml/materials/AxisMaterial.qml</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/arm_inverted.mesh</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/base_inverted.mesh</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/lift_inverted.mesh</file>
-        <file>qml/models/rigs/staubli/RX160L/meshes/rotate_inverted.mesh</file>
+        <file>qml/models/Model.qml</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/arm.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/arm_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/base.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/lift.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/lift_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/mount_left.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/mount_right.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/mount_top.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/pan.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/pan_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/panL.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/panL_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/pedestal.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/precision_rail.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/roll.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/roll_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/rotate.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/rotate_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/stand.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/tilt.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/tilt_inverted.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/track.mesh</file>
+        <file>qml/models/rigs/staubli/RX160/meshes/track_inverted.mesh</file>
     </qresource>
 </RCC>

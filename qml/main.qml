@@ -39,7 +39,7 @@ Window {
         Item {
             Layout.fillHeight: true
             Layout.fillWidth: true
-
+/*
             V.PathViewport {
                 id: pathViewport
                 anchors.fill: parent
@@ -50,6 +50,7 @@ Window {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
             }
+            */
         }
     }
 }

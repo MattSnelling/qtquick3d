@@ -3,4 +3,11 @@ set(QTQUICK3D_SOURCES
 	${PROJECT_SOURCE_DIR}/src/main.cpp
 )
 
-source_group("Source Files" FILES ${QTQUICK3D_SOURCES})
+source_group("src" FILES ${QTQUICK3D_SOURCES})
+
+include(${PROJECT_SOURCE_DIR}/src/viewmodels/viewmodels.cmake)
+
+set(QTQUICK3D_SOURCES
+	${QTQUICK3D_SOURCES}
+	${QTQUICK3D_SOURCES_VIEWMODELS}
+)

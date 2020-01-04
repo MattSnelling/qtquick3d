@@ -5,35 +5,31 @@
 import QtQuick3D 1.14
 
 import "../materials" as M
+import "../models" as MS
 
 // NOTE
 // Blender -> z points up (away from the ground)
 // QML -> y points up
 // i.e. y and z are swapped
 
-Model {
+MS.Model {
     id: axis
 
     property var axisModel: null
-    property alias axisColor: axisMaterial.diffuseColor
     property alias outlineScale: outline.scale
 
-    readonly property Vector3D defaultOutlineScale: Qt.vector3d(1.01, 1.01, 1.01)
-
-    rotationOrder: Node.XYZr
-    orientation: Node.RightHanded
-    materials: M.AxisMaterial {}
+    readonly property vector3d defaultOutlineScale: Qt.vector3d(1.01, 1.01, 1.01)
 
     rotation: axisModel.rotation
-    position: axisModel.position
+    position: origin.plus(axisModel.translation)
 
-    Model {
+    MS.Model {
         id: outline
-        source: parent.source.replace(".mesh", "_inverted.mesh")
+        source: parent.source.toString().replace(".mesh", "_inverted.mesh")
         castsShadows: false
         scale: defaultOutlineScale
         materials: M.AxisGlowMaterial {
-            color: axisModel.color
+            diffuseColor: axisModel.color
         }
     }
 }

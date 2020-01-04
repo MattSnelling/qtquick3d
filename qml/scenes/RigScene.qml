@@ -55,18 +55,16 @@ Node {
         ]
     }
 
-    property alias rigViewModel: rigLoader.rigViewModel
-
     Loader3D {
         id: rigLoader
 
-        property var rigViewModel: null
+        property var rigModel: rigSceneViewModel.currentRig
 
         asynchronous: true
         visible: status == Loader3D.Ready
-        source: "qrc:/qml/rigs/staubli/RX160L.qml"
+        source: rigModel ? rigModel.source : ""
 
-        onLoaded: item.rigViewModel = rigViewModel
+        onLoaded: item.rigModel = rigModel
     }
 
 }
