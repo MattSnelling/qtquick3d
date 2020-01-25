@@ -1,7 +1,6 @@
 /**
-  * Mark Roberts Motion Control Ltd
-  * Author: Simone Angeloni
-  */
+ *
+ */
 
 #pragma once
 

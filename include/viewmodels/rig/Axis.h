@@ -1,6 +1,6 @@
 /**
-* Copyright (C) 2018 Mark Roberts Motion Control Limited
-*/
+ *
+ */
 
 #pragma once
 
