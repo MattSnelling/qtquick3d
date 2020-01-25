@@ -22,11 +22,12 @@ Item {
 
     property real revolveXSpeed: 0.1
     property real revolveYSpeed: 0.1
-    property bool revolveXInvert: true
-    property bool revolveYInvert: false
+    property bool revolveXInvert: false
+    property bool revolveYInvert: true
 
     property real zoomSpeed: 0.1
     property real zoomDivider: 120
+    property bool zoomInvert: true
 
     readonly property bool inputsNeedProcessing: status.rotateView | status.panView | status.revolveView | status.zoomView
 
@@ -80,7 +81,11 @@ Item {
 
         onWheel: {
             status.zoomView = true;
-            status.currentZoomPosition += wheel.angleDelta.y / zoomDivider;
+            var zoomDelta = wheel.angleDelta.y / zoomDivider;
+            if ((zoomDelta < 0 && status.totalZoom > 0) || (zoomDelta > 0 && status.totalZoom > 0))
+                status.totalZoom = zoomDelta;
+            else
+                status.totalZoom +=  zoomDelta;
         }
     }
 
@@ -109,7 +114,7 @@ Item {
         property bool revolveView: false
 
         property bool zoomView: false
-        property double currentZoomPosition: 0.0
+        property double totalZoom: 0.0
 
         function processInput() {
             if (camera == undefined)
@@ -117,6 +122,7 @@ Item {
 
             var rotationVector = camera.rotation;
             var positionVector = camera.position;
+            var pivotPoint = camera.pivot;
 
             // Get the deltas
             var deltaRotate = Qt.vector2d(lastRotate.x - currentRotate.x, lastRotate.y - currentRotate.y);
@@ -155,9 +161,6 @@ Item {
                 camera.setPosition(positionVector);
             }
             else if(revolveView && deltaRotate !== Qt.vector2d(0,0)) {
-
-                console.debug("Rotate " + deltaRotate)
-
                 // Revolve x
                 var revolveX = deltaRotate.x * -revolveXSpeed
                 if (revolveXInvert)
@@ -175,12 +178,42 @@ Item {
                 // Apply transforms
                 var rotatedPosition = Utility.rotateAboutAxis(positionVector, Qt.vector3d(0, 1, 0), thetaX);
                 rotatedPosition = Utility.rotateAboutAxis(rotatedPosition, Qt.vector3d(1, 0, 0), thetaY);
-
                 camera.setPosition(rotatedPosition);
+
+                camera.rotate(revolveX, Qt.vector3d(0, 1, 0), Qt.SceneSpace);
+                camera.rotate(revolveY, Qt.vector3d(1, 0, 0), Qt.SceneSpace);
+                camera.setRotation(rotationVector);
             }
             else if (zoomView) {
-                console.debug(currentZoomPosition)
-                zoomView = false
+
+                var multiplier = 0.0;
+                if (totalZoom > 0.0) {
+                    totalZoom -= zoomSpeed;
+                    multiplier = -zoomSpeed;
+
+                    if(totalZoom <= 0.0) {
+                        totalZoom = 0.0;
+                        zoomView = false;
+                    }
+                }
+                else {
+                    totalZoom += zoomSpeed;
+                    multiplier = zoomSpeed;
+
+                    if(totalZoom >= 0.0) {
+                        totalZoom = 0.0;
+                        zoomView = false;
+                    }
+                }
+
+                if (zoomInvert)
+                    multiplier = -multiplier;
+
+                var forwardVector = camera.forward;
+                var zoomTranslation = Qt.vector3d(forwardVector.x * multiplier, forwardVector.y * multiplier, forwardVector.z * multiplier);
+
+                positionVector = Qt.vector3d(positionVector.x + zoomTranslation.x, positionVector.y + zoomTranslation.y, positionVector.z + zoomTranslation.z);
+                camera.setPosition(positionVector);
             }
         }
     }
