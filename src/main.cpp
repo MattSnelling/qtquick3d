@@ -3,6 +3,7 @@
  */
 
 #include "include/viewmodels/rig/Scene.h"
+#include "include/viewmodels/rig/Utility.h"
 
 #include <QtCore/QResource>
 #include <QtGui/QGuiApplication>
@@ -24,11 +25,16 @@ int main(int argc, char *argv[])
 
     QSurfaceFormat::setDefaultFormat(QQuick3DViewport::idealSurfaceFormat());
 
+    // QML
     QQmlApplicationEngine engine;
     QQmlContext * pContext = engine.rootContext();
 
-	auto & scene = UI::ViewModels::Rig::Scene::instance();
-	pContext->setContextProperty("rigSceneViewModel", &scene);
+    // Singleton instances
+	auto & scene = UI::ViewModels::Rig::Scene::instance(pContext);
+	qmlRegisterSingletonInstance("Rig", 1, 0, "Scene", &scene);
+    
+	auto & utility = UI::ViewModels::Rig::Utility::instance(pContext);
+	qmlRegisterSingletonInstance("Rig", 1, 0, "Utility", &utility);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
     if (engine.rootObjects().isEmpty())

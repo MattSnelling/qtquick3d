@@ -35,5 +35,8 @@
         <file>qml/models/rigs/staubli/RX160/meshes/tilt_inverted.mesh</file>
         <file>qml/models/rigs/staubli/RX160/meshes/track.mesh</file>
         <file>qml/models/rigs/staubli/RX160/meshes/track_inverted.mesh</file>
+        <file>qml/models/Path.qml</file>
+        <file>qml/materials/PathMaterial.qml</file>
+        <file>qml/utilities/CameraController.qml</file>
     </qresource>
 </RCC>

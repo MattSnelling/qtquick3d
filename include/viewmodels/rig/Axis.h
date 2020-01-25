@@ -15,7 +15,7 @@ namespace UI::ViewModels::Rig
 	/**
 	 * \author Matthew Snelling
 	 * \date 04 Jan 2020
-	 * \brief A controllable Staubli 3D rig model.
+	 * \brief A 3D axis that can be moved.
 	 */
 	class Axis : public QObject
 	{

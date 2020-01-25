@@ -5,6 +5,10 @@
 import QtQuick 2.14
 import QtQuick3D 1.14
 
+import Rig 1.0
+
+import "../models" as M
+
 Node {
     id: sceneNode
 
@@ -58,7 +62,7 @@ Node {
     Loader3D {
         id: rigLoader
 
-        property var rigModel: rigSceneViewModel.currentRig
+        property var rigModel: Scene.currentRig
 
         asynchronous: true
         visible: status == Loader3D.Ready
@@ -67,4 +71,8 @@ Node {
         onLoaded: item.rigModel = rigModel
     }
 
+    M.Path {
+        id: cameraPath
+        pathModel: Scene.cameraPath
+    }
 }

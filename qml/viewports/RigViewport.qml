@@ -8,6 +8,7 @@ import QtQuick3D.Helpers 1.14
 
 import "../environments" as E
 import "../scenes" as S
+import "../utilities" as U
 
 View3D {
     id: viewport
@@ -15,54 +16,29 @@ View3D {
     environment: E.RigEnvironment {}
     camera: sceneNode.perspectiveCamera
 
-    WasdController {
-        id: viewController
-        controlledObject: camera
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
-        speed: 0.1
-        //keysEnabled: false
+    U.CameraController {
+        id: cameraController
+        camera: viewport.camera
+    }
 
-        MouseArea {
-            id: mouseOverlay
-            anchors.fill: parent
-            propagateComposedEvents: true
-            acceptedButtons: Qt.MiddleButton
+    Rectangle {
+        color: "white"
+        width: 200
+        height: 300
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
 
-            onPositionChanged: {
-                if (pressedButtons & Qt.MiddleButton) {
-                    viewController.mouseMoved(Qt.vector2d(mouse.x, mouse.y));
-                }
+        Column {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            Text {
+                text: "pos " + Math.round(camera.x) + "," + Math.round(camera.y) + "," + Math.round(camera.z)
             }
-
-            onReleased: {
-                viewController.mouseReleased(Qt.vector2d(mouse.x, mouse.y));
-            }
-
-            property bool goForward: false
-
-            onWheel: {
-                if (wheel.angleDelta.y > 0) {
-                    goForward = true;
-                    viewController.forwardPressed();
-                    wheelChangeTimer.start();
-                }
-                else {
-                    goForward = false;
-                    viewController.backPressed();
-                    wheelChangeTimer.start();
-                }
-            }
-
-            Timer {
-                id: wheelChangeTimer
-                interval: 200
-                onTriggered: {
-                    if (mouseOverlay.goForward)
-                        viewController.forwardReleased();
-                    else
-                        viewController.backReleased();
-                }
+            Text {
+                text: "rot " + Math.round(camera.rotation.x) + "," + Math.round(camera.rotation.y) + "," + Math.round(camera.rotation.z)
             }
         }
-    }
+        }
+
+
 }

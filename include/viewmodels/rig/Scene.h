@@ -7,6 +7,7 @@
 #include "include/Common.h"
 #include "include/Singleton.h"
 #include "RigModel.h"
+#include "Path.h"
 
 #include <QtCore/QObject>
 
@@ -24,6 +25,7 @@ namespace UI::ViewModels::Rig
 
 	protected:
 		QML_POINTER_PROPERTY(RigModel, currentRig) ///< The current rig in use.
+		QML_POINTER_PROPERTY(Path, cameraPath) ///< The camera path.
 
 	public:
 		/**
