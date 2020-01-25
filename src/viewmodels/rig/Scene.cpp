@@ -18,8 +18,8 @@ Scene::Scene(QObject * pParent) :
 	p_cameraPath->addPoint({0, 0, 0});
 	p_cameraPath->addPoint({0, 1, 0});
 	p_cameraPath->addPoint({0, 1, 1});
-	p_cameraPath->addPoint({0, 1.5, 1.5});
-	p_cameraPath->addPoint({0, 1.25, 1.25});
-	p_cameraPath->addPoint({0, 1.125, 1.125});
+	p_cameraPath->addPoint({1, 1.5, 1.5});
+	p_cameraPath->addPoint({0.7, 1.25, 1.25});
+	p_cameraPath->addPoint({0.3, 1.125, 1.125});
 	p_cameraPath->set();
 }

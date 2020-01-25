@@ -23,7 +23,7 @@ namespace UI::ViewModels::Rig
 
 	private:
 
-		static constexpr double DEFAULT_THICKNESS = 0.02; ///< The default path thickness (in metres).
+		static constexpr double DEFAULT_THICKNESS = 0.01; ///< The default path thickness (in metres).
 
 	protected:
 		Q_PROPERTY(int count READ getCount NOTIFY countChanged)

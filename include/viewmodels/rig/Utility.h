@@ -8,7 +8,6 @@
 
 #include <QtCore/QObject>
 #include <QtGui/QVector3D>
-#include <QtGui/QMatrix4x4>
 
 namespace UI::ViewModels::Rig
 {
@@ -37,5 +36,14 @@ namespace UI::ViewModels::Rig
 		 * \return The rotated point.
 		 */
 		Q_INVOKABLE QVector3D rotateAboutAxis(QVector3D point, QVector3D axis, double theta);
+
+		/**
+		 * \details Determine the required rotations to look at the given position.
+		 * \param point The point to rotate.
+		 * \param rotation The current rotation of the point.
+		 * \param lookAt The position to look at.
+		 * \return The required rotation.
+		 */
+		Q_INVOKABLE QVector3D lookAt(QVector3D point, QVector3D rotation, QVector3D lookAt);
 	};
 } // namespace UI::ViewModels::Rig

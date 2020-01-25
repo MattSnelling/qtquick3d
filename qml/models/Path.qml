@@ -18,13 +18,17 @@ Repeater3D {
     Model {
         id: line
 
-        source: "#Cube"
+        property real length: pathModel.getSegmentLength(index)
+
+        source: "meshes/cube.mesh"
         position: pathModel.getPoint(index)
         rotation: pathModel.getSegmentRotation(index)
-        scale: Qt.vector3d(pathModel.getSegmentLength(index) / 100, pathModel.thickness / 100, pathModel.thickness / 100)
+        scale: Qt.vector3d(pathModel.thickness, length / 2, pathModel.thickness)
 
+        receivesShadows: false
         materials: DefaultMaterial {
             diffuseColor: pathModel.color
+            lighting: DefaultMaterial.NoLighting
         }
     }
 }

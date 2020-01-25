@@ -38,5 +38,6 @@
         <file>qml/models/Path.qml</file>
         <file>qml/materials/PathMaterial.qml</file>
         <file>qml/utilities/CameraController.qml</file>
+        <file>qml/models/meshes/cube.mesh</file>
     </qresource>
 </RCC>

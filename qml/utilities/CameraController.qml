@@ -85,7 +85,7 @@ Item {
             if ((zoomDelta < 0 && status.totalZoom > 0) || (zoomDelta > 0 && status.totalZoom > 0))
                 status.totalZoom = zoomDelta;
             else
-                status.totalZoom +=  zoomDelta;
+                status.totalZoom += zoomDelta;
         }
     }
 
@@ -180,8 +180,9 @@ Item {
                 rotatedPosition = Utility.rotateAboutAxis(rotatedPosition, Qt.vector3d(1, 0, 0), thetaY);
                 camera.setPosition(rotatedPosition);
 
-                camera.rotate(revolveX, Qt.vector3d(0, 1, 0), Qt.SceneSpace);
-                camera.rotate(revolveY, Qt.vector3d(1, 0, 0), Qt.SceneSpace);
+                //rotationVector = Utility.lookAt(rotatedPosition, rotationVector, revolveAround);
+                camera.rotate(revolveX, Qt.vector3d(rotatedPosition.x, 1, rotatedPosition.z), Qt.LocalSpace);
+                camera.rotate(revolveY, Qt.vector3d(1, rotatedPosition.y, rotatedPosition.z), Qt.LocalSpace);
                 camera.setRotation(rotationVector);
             }
             else if (zoomView) {

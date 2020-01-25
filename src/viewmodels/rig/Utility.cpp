@@ -22,3 +22,12 @@ QVector3D Utility::rotateAboutAxis(QVector3D point, QVector3D axis, double theta
 
 	return q3.vector();
 }
+
+QVector3D Utility::lookAt(QVector3D point, QVector3D, QVector3D lookAt)
+{
+	QQuaternion q1 = QQuaternion::rotationTo(point, lookAt);
+
+	QVector3D qv = q1.vector();
+	QVector3D v(qRadiansToDegrees(qv.x()), qRadiansToDegrees(qv.y()), qRadiansToDegrees(qv.z())); 
+	return v;
+}

@@ -22,7 +22,7 @@ Node {
     PerspectiveCamera {
         id: perspective
         position: Qt.vector3d(0, 2, -3)
-        //rotation: Qt.vector3d(30, 0, 0)
+        rotation: Qt.vector3d(30, 0, 0)
         clipNear: 0.01
     }
 

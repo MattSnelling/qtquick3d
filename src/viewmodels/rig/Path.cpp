@@ -30,7 +30,9 @@ QVector3D Path::getSegmentRotation(int index) const
 	const QVector3D & thisPoint = getPoint(index);
 	const QVector3D & nextPoint = getPoint(index + 1);
 
-	QQuaternion rotation = QQuaternion::rotationTo(thisPoint, nextPoint);
+	QVector3D line(nextPoint.x() - thisPoint.x(), nextPoint.y() - thisPoint.y(), nextPoint.z() - thisPoint.z());
+
+	QQuaternion rotation = QQuaternion::rotationTo(QVector3D(0.0f, 1.0f, 0.0f), line);
 
 	QVector3D rotationEuler = rotation.toEulerAngles();
 	return rotationEuler;
