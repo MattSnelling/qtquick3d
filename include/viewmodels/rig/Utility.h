@@ -40,10 +40,9 @@ namespace UI::ViewModels::Rig
 		/**
 		 * \details Determine the required rotations to look at the given position.
 		 * \param point The point to rotate.
-		 * \param rotation The current rotation of the point.
 		 * \param lookAt The position to look at.
 		 * \return The required rotation.
 		 */
-		Q_INVOKABLE QVector3D lookAt(QVector3D point, QVector3D rotation, QVector3D lookAt);
+		Q_INVOKABLE QVector3D lookAt(QVector3D point, QVector3D lookAt);
 	};
 } // namespace UI::ViewModels::Rig

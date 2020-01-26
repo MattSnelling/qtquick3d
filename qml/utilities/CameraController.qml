@@ -180,9 +180,7 @@ Item {
                 rotatedPosition = Utility.rotateAboutAxis(rotatedPosition, Qt.vector3d(1, 0, 0), thetaY);
                 camera.setPosition(rotatedPosition);
 
-                //rotationVector = Utility.lookAt(rotatedPosition, rotationVector, revolveAround);
-                camera.rotate(revolveX, Qt.vector3d(rotatedPosition.x, 1, rotatedPosition.z), Qt.LocalSpace);
-                camera.rotate(revolveY, Qt.vector3d(1, rotatedPosition.y, rotatedPosition.z), Qt.LocalSpace);
+                rotationVector = Utility.lookAt(rotatedPosition, revolveAround);
                 camera.setRotation(rotationVector);
             }
             else if (zoomView) {
