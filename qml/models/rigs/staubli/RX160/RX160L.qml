@@ -19,7 +19,7 @@ Node {
         id: track
         origin: Qt.vector3d(0, 0.98, 0)
         source: "meshes/track.mesh"
-        axisModel: rigModel.track
+        axisModel: rigModel.base
 
         M.Model {
             id: base

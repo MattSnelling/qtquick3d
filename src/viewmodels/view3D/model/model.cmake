@@ -1,0 +1,14 @@
+set(QTQUICK3D_SOURCES_VIEWMODELS_VIEW3D_MODEL
+	${PROJECT_SOURCE_DIR}/src/viewmodels/view3D/model/Axis.cpp
+	${PROJECT_SOURCE_DIR}/src/viewmodels/view3D/model/Path.cpp
+)
+
+source_group("src\\viewmodels\\view3D\\model" FILES ${QTQUICK3D_SOURCES_VIEWMODELS_VIEW3D_MODEL})
+
+include(${PROJECT_SOURCE_DIR}/src/viewmodels/view3D/model/rig/rig.cmake)
+
+set(QTQUICK3D_SOURCES_VIEWMODELS_VIEW3D_MODEL
+	${QTQUICK3D_SOURCES_VIEWMODELS_VIEW3D_MODEL}
+	${QTQUICK3D_SOURCES_VIEWMODELS_VIEW3D_MODEL_RIG}
+)
+

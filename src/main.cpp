@@ -2,8 +2,9 @@
  *
  */
 
-#include "include/viewmodels/rig/Scene.h"
-#include "include/viewmodels/rig/Utility.h"
+#include "include/viewmodels/view3d/scene/PathScene.h"
+#include "include/viewmodels/view3d/scene/RigScene.h"
+#include "include/viewmodels/view3d/utility/Utility.h"
 
 #include <QtCore/QResource>
 #include <QtGui/QGuiApplication>
@@ -30,11 +31,14 @@ int main(int argc, char *argv[])
     QQmlContext * pContext = engine.rootContext();
 
     // Singleton instances
-	auto & scene = UI::ViewModels::Rig::Scene::instance(pContext);
-	qmlRegisterSingletonInstance("Rig", 1, 0, "Scene", &scene);
+	auto & rigScene = UI::ViewModels::View3D::Scene::RigScene::instance(pContext);
+	qmlRegisterSingletonInstance("View3D", 1, 0, "RigScene", &rigScene);
+
+    auto & pathScene = UI::ViewModels::View3D::Scene::PathScene::instance(pContext);
+	qmlRegisterSingletonInstance("View3D", 1, 0, "PathScene", &pathScene);
     
-	auto & utility = UI::ViewModels::Rig::Utility::instance(pContext);
-	qmlRegisterSingletonInstance("Rig", 1, 0, "Utility", &utility);
+	auto & utility = UI::ViewModels::View3D::Utility::Utility::instance(pContext);
+	qmlRegisterSingletonInstance("View3D", 1, 0, "Utility", &utility);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
     if (engine.rootObjects().isEmpty())
